@@ -1,0 +1,9 @@
+C:\IU7\Testing\Terminal\Terminal\SpecExplorer.TestSuite\obj\Debug\SpecExplorer.TestSuite.csprojResolveAssemblyReference.cache
+C:\IU7\Testing\Terminal\Terminal\SpecExplorer.TestSuite\bin\Debug\SpecExplorer.TestSuite.dll
+C:\IU7\Testing\Terminal\Terminal\SpecExplorer.TestSuite\bin\Debug\SpecExplorer.TestSuite.pdb
+C:\IU7\Testing\Terminal\Terminal\SpecExplorer.TestSuite\bin\Debug\SpecExplorer.Sample.dll
+C:\IU7\Testing\Terminal\Terminal\SpecExplorer.TestSuite\bin\Debug\Terminal.exe
+C:\IU7\Testing\Terminal\Terminal\SpecExplorer.TestSuite\bin\Debug\SpecExplorer.Sample.pdb
+C:\IU7\Testing\Terminal\Terminal\SpecExplorer.TestSuite\bin\Debug\Terminal.pdb
+C:\IU7\Testing\Terminal\Terminal\SpecExplorer.TestSuite\obj\Debug\SpecExplorer.TestSuite.dll
+C:\IU7\Testing\Terminal\Terminal\SpecExplorer.TestSuite\obj\Debug\SpecExplorer.TestSuite.pdb

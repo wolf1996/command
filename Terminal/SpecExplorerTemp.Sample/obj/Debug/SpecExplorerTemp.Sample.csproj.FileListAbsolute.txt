@@ -1,0 +1,4 @@
+C:\IU7\Testing\Terminal\Terminal\SpecExplorerTemp.Sample\bin\Debug\SpecExplorerTemp.Sample.dll
+C:\IU7\Testing\Terminal\Terminal\SpecExplorerTemp.Sample\bin\Debug\SpecExplorerTemp.Sample.pdb
+C:\IU7\Testing\Terminal\Terminal\SpecExplorerTemp.Sample\obj\Debug\SpecExplorerTemp.Sample.dll
+C:\IU7\Testing\Terminal\Terminal\SpecExplorerTemp.Sample\obj\Debug\SpecExplorerTemp.Sample.pdb

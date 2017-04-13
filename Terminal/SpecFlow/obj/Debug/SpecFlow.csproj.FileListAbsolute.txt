@@ -1,0 +1,12 @@
+C:\IU7\Testing\Terminal\Terminal\SpecFlow\bin\Debug\SpecFlow.dll.config
+C:\IU7\Testing\Terminal\Terminal\SpecFlow\bin\Debug\SpecFlow.dll
+C:\IU7\Testing\Terminal\Terminal\SpecFlow\bin\Debug\SpecFlow.pdb
+C:\IU7\Testing\Terminal\Terminal\SpecFlow\bin\Debug\nunit.framework.dll
+C:\IU7\Testing\Terminal\Terminal\SpecFlow\bin\Debug\TechTalk.SpecFlow.dll
+C:\IU7\Testing\Terminal\Terminal\SpecFlow\bin\Debug\nunit.framework.xml
+C:\IU7\Testing\Terminal\Terminal\SpecFlow\obj\Debug\SpecFlow.csprojResolveAssemblyReference.cache
+C:\IU7\Testing\Terminal\Terminal\SpecFlow\obj\Debug\SpecFlow.dll
+C:\IU7\Testing\Terminal\Terminal\SpecFlow\obj\Debug\SpecFlow.pdb
+C:\IU7\Testing\Terminal\Terminal\SpecFlow\bin\Debug\Terminal.exe
+C:\IU7\Testing\Terminal\Terminal\SpecFlow\bin\Debug\Terminal.pdb
+C:\IU7\Testing\Terminal\Terminal\SpecFlow\bin\Debug\Default.srprofile
