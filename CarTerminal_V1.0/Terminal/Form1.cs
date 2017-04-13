@@ -12,14 +12,14 @@ using System.IO;
 
 namespace Terminal
 {
-    public partial class Form1 : Form
+    public partial class main_form : Form
     {
         private COMPort com = new COMPort();
         private string path_root;
         private string path_file;
 
         //--- Конструктор по-умолчанию --------------------------------------------------------------------------------
-        public Form1()
+        public main_form()
         {
             InitializeComponent();
             foreach(string port in SerialPort.GetPortNames())           // Заполнение списков COM-портов
@@ -33,6 +33,8 @@ namespace Terminal
             lbl_path.Text = path_file;
 
             of_dialog.InitialDirectory = path_root + @"Test files\";
+
+            tab_mode.Enabled = false;
         }
 
         //--- Действие при закрытии формы -----------------------------------------------------------------------------
@@ -52,11 +54,15 @@ namespace Terminal
                 com.onRecieve += recieve_msg;
                 if (com.open())
                     btn_open_close.Text = "Закрыть";
+                tab_mode.Enabled = true;
+                tab_mode.SelectedIndex = 0;
+                com_send(@"@MAN_ON");
             }
             else                                                        // Закрыть COM-порт
             {
                 if (!com.close())
                     btn_open_close.Text = "Открыть";
+                tab_mode.Enabled = false;
             }
         }
 
@@ -136,6 +142,26 @@ namespace Terminal
             rtb_send.Text += com.send(text) + Environment.NewLine;
             rtb_send.SelectionStart = rtb_send.Text.Length;
             rtb_send.ScrollToCaret();
+        }
+
+        //--- Выбор режима управления устройством ---------------------------------------------------------------------
+        private void tab_mode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (tab_mode.SelectedIndex)
+            {
+                case 0:
+                    com_send(@"@MAN_ON");
+                    break;
+                case 1:
+                    com_send(@"@SEMI_ON");
+                    break;
+                case 2:
+                    com_send(@"@AUTO_ON");
+                    break;
+                default:
+                    com_send(@"@NOT_DETECTED");
+                    break;
+            }
         }
     }
 

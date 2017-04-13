@@ -1,6 +1,6 @@
 ﻿namespace Terminal
 {
-    partial class Form1
+    partial class main_form
     {
         /// <summary>
         /// Required designer variable.
@@ -45,7 +45,50 @@
             this.lbl_path = new System.Windows.Forms.Label();
             this.btn_open_file = new System.Windows.Forms.Button();
             this.of_dialog = new System.Windows.Forms.OpenFileDialog();
+            this.tab_mode = new System.Windows.Forms.TabControl();
+            this.manual = new System.Windows.Forms.TabPage();
+            this.semiauto = new System.Windows.Forms.TabPage();
+            this.auto = new System.Windows.Forms.TabPage();
+            this.lbl_forward = new System.Windows.Forms.Label();
+            this.lbl_back = new System.Windows.Forms.Label();
+            this.lbl_right = new System.Windows.Forms.Label();
+            this.lbl_left = new System.Windows.Forms.Label();
+            this.lbl_led = new System.Windows.Forms.Label();
+            this.nud_semi_midspeed = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.nud_semi_a = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.nud_semi_freq = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.nud_auto_freq = new System.Windows.Forms.NumericUpDown();
+            this.label9 = new System.Windows.Forms.Label();
+            this.nud_auto_weight = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
+            this.nud_auto_coe = new System.Windows.Forms.NumericUpDown();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.nud_auto_imp = new System.Windows.Forms.NumericUpDown();
+            this.nud_auto_rs = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.nud_auto_rd = new System.Windows.Forms.NumericUpDown();
+            this.label14 = new System.Windows.Forms.Label();
+            this.btn_auto_start_stop = new System.Windows.Forms.Button();
+            this.btn_semi_start_stop = new System.Windows.Forms.Button();
+            this.btn_graph = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            this.tab_mode.SuspendLayout();
+            this.manual.SuspendLayout();
+            this.semiauto.SuspendLayout();
+            this.auto.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_semi_midspeed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_semi_a)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_semi_freq)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_auto_freq)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_auto_weight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_auto_coe)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_auto_imp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_auto_rs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_auto_rd)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -210,11 +253,395 @@
             // 
             this.of_dialog.Filter = "Текстовый файл (*.txt)|*.txt|All files (*.*)|*.*";
             // 
-            // Form1
+            // tab_mode
+            // 
+            this.tab_mode.Controls.Add(this.manual);
+            this.tab_mode.Controls.Add(this.semiauto);
+            this.tab_mode.Controls.Add(this.auto);
+            this.tab_mode.Location = new System.Drawing.Point(362, 12);
+            this.tab_mode.Name = "tab_mode";
+            this.tab_mode.SelectedIndex = 0;
+            this.tab_mode.Size = new System.Drawing.Size(273, 224);
+            this.tab_mode.TabIndex = 19;
+            this.tab_mode.SelectedIndexChanged += new System.EventHandler(this.tab_mode_SelectedIndexChanged);
+            // 
+            // manual
+            // 
+            this.manual.Controls.Add(this.lbl_led);
+            this.manual.Controls.Add(this.lbl_left);
+            this.manual.Controls.Add(this.lbl_right);
+            this.manual.Controls.Add(this.lbl_back);
+            this.manual.Controls.Add(this.lbl_forward);
+            this.manual.Location = new System.Drawing.Point(4, 22);
+            this.manual.Name = "manual";
+            this.manual.Padding = new System.Windows.Forms.Padding(3);
+            this.manual.Size = new System.Drawing.Size(265, 198);
+            this.manual.TabIndex = 0;
+            this.manual.Text = "Ручной";
+            this.manual.UseVisualStyleBackColor = true;
+            // 
+            // semiauto
+            // 
+            this.semiauto.Controls.Add(this.btn_semi_start_stop);
+            this.semiauto.Controls.Add(this.nud_semi_freq);
+            this.semiauto.Controls.Add(this.label8);
+            this.semiauto.Controls.Add(this.nud_semi_a);
+            this.semiauto.Controls.Add(this.label7);
+            this.semiauto.Controls.Add(this.nud_semi_midspeed);
+            this.semiauto.Controls.Add(this.label4);
+            this.semiauto.Location = new System.Drawing.Point(4, 22);
+            this.semiauto.Name = "semiauto";
+            this.semiauto.Padding = new System.Windows.Forms.Padding(3);
+            this.semiauto.Size = new System.Drawing.Size(265, 198);
+            this.semiauto.TabIndex = 1;
+            this.semiauto.Text = "Полуавтоматический";
+            this.semiauto.UseVisualStyleBackColor = true;
+            // 
+            // auto
+            // 
+            this.auto.Controls.Add(this.btn_auto_start_stop);
+            this.auto.Controls.Add(this.nud_auto_rd);
+            this.auto.Controls.Add(this.label14);
+            this.auto.Controls.Add(this.nud_auto_rs);
+            this.auto.Controls.Add(this.label13);
+            this.auto.Controls.Add(this.nud_auto_imp);
+            this.auto.Controls.Add(this.label12);
+            this.auto.Controls.Add(this.nud_auto_coe);
+            this.auto.Controls.Add(this.label10);
+            this.auto.Controls.Add(this.nud_auto_freq);
+            this.auto.Controls.Add(this.label9);
+            this.auto.Controls.Add(this.nud_auto_weight);
+            this.auto.Controls.Add(this.label11);
+            this.auto.Location = new System.Drawing.Point(4, 22);
+            this.auto.Name = "auto";
+            this.auto.Size = new System.Drawing.Size(265, 198);
+            this.auto.TabIndex = 2;
+            this.auto.Text = "Автоматический";
+            this.auto.UseVisualStyleBackColor = true;
+            // 
+            // lbl_forward
+            // 
+            this.lbl_forward.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbl_forward.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_forward.Location = new System.Drawing.Point(92, 29);
+            this.lbl_forward.MinimumSize = new System.Drawing.Size(35, 35);
+            this.lbl_forward.Name = "lbl_forward";
+            this.lbl_forward.Size = new System.Drawing.Size(80, 35);
+            this.lbl_forward.TabIndex = 0;
+            this.lbl_forward.Text = "Вперед";
+            this.lbl_forward.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl_back
+            // 
+            this.lbl_back.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbl_back.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_back.Location = new System.Drawing.Point(92, 116);
+            this.lbl_back.MinimumSize = new System.Drawing.Size(35, 35);
+            this.lbl_back.Name = "lbl_back";
+            this.lbl_back.Size = new System.Drawing.Size(80, 35);
+            this.lbl_back.TabIndex = 1;
+            this.lbl_back.Text = "Назад";
+            this.lbl_back.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl_right
+            // 
+            this.lbl_right.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbl_right.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_right.Location = new System.Drawing.Point(178, 73);
+            this.lbl_right.MinimumSize = new System.Drawing.Size(35, 35);
+            this.lbl_right.Name = "lbl_right";
+            this.lbl_right.Size = new System.Drawing.Size(80, 35);
+            this.lbl_right.TabIndex = 2;
+            this.lbl_right.Text = "Направо";
+            this.lbl_right.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl_left
+            // 
+            this.lbl_left.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbl_left.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_left.Location = new System.Drawing.Point(6, 73);
+            this.lbl_left.MinimumSize = new System.Drawing.Size(35, 35);
+            this.lbl_left.Name = "lbl_left";
+            this.lbl_left.Size = new System.Drawing.Size(80, 35);
+            this.lbl_left.TabIndex = 3;
+            this.lbl_left.Text = "Налево";
+            this.lbl_left.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl_led
+            // 
+            this.lbl_led.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbl_led.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_led.Location = new System.Drawing.Point(92, 73);
+            this.lbl_led.MinimumSize = new System.Drawing.Size(35, 35);
+            this.lbl_led.Name = "lbl_led";
+            this.lbl_led.Size = new System.Drawing.Size(80, 35);
+            this.lbl_led.TabIndex = 4;
+            this.lbl_led.Text = "Фары";
+            this.lbl_led.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // nud_semi_midspeed
+            // 
+            this.nud_semi_midspeed.Location = new System.Drawing.Point(138, 11);
+            this.nud_semi_midspeed.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.nud_semi_midspeed.Name = "nud_semi_midspeed";
+            this.nud_semi_midspeed.Size = new System.Drawing.Size(59, 20);
+            this.nud_semi_midspeed.TabIndex = 4;
+            this.nud_semi_midspeed.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 13);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(126, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Cредняя скорость (у.е.)";
+            // 
+            // nud_semi_a
+            // 
+            this.nud_semi_a.Location = new System.Drawing.Point(138, 37);
+            this.nud_semi_a.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.nud_semi_a.Name = "nud_semi_a";
+            this.nud_semi_a.Size = new System.Drawing.Size(59, 20);
+            this.nud_semi_a.TabIndex = 6;
+            this.nud_semi_a.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 39);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(88, 13);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Амплитуда (у.е.)";
+            // 
+            // nud_semi_freq
+            // 
+            this.nud_semi_freq.Location = new System.Drawing.Point(138, 63);
+            this.nud_semi_freq.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.nud_semi_freq.Name = "nud_semi_freq";
+            this.nud_semi_freq.Size = new System.Drawing.Size(59, 20);
+            this.nud_semi_freq.TabIndex = 8;
+            this.nud_semi_freq.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 65);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(70, 13);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Частота (Гц)";
+            // 
+            // nud_auto_freq
+            // 
+            this.nud_auto_freq.Location = new System.Drawing.Point(164, 35);
+            this.nud_auto_freq.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.nud_auto_freq.Name = "nud_auto_freq";
+            this.nud_auto_freq.Size = new System.Drawing.Size(59, 20);
+            this.nud_auto_freq.TabIndex = 14;
+            this.nud_auto_freq.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(12, 37);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(128, 13);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Частота импульсов (Гц)";
+            // 
+            // nud_auto_weight
+            // 
+            this.nud_auto_weight.Location = new System.Drawing.Point(164, 8);
+            this.nud_auto_weight.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nud_auto_weight.Name = "nud_auto_weight";
+            this.nud_auto_weight.Size = new System.Drawing.Size(59, 20);
+            this.nud_auto_weight.TabIndex = 10;
+            this.nud_auto_weight.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(12, 10);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(49, 13);
+            this.label11.TabIndex = 9;
+            this.label11.Text = "Вес (гр.)";
+            // 
+            // nud_auto_coe
+            // 
+            this.nud_auto_coe.Location = new System.Drawing.Point(164, 63);
+            this.nud_auto_coe.Name = "nud_auto_coe";
+            this.nud_auto_coe.Size = new System.Drawing.Size(59, 20);
+            this.nud_auto_coe.TabIndex = 16;
+            this.nud_auto_coe.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(12, 65);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(98, 13);
+            this.label10.TabIndex = 15;
+            this.label10.Text = "КПД передачи (%)";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(12, 91);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(111, 13);
+            this.label12.TabIndex = 17;
+            this.label12.Text = "Передаточное число";
+            // 
+            // nud_auto_imp
+            // 
+            this.nud_auto_imp.Location = new System.Drawing.Point(164, 89);
+            this.nud_auto_imp.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nud_auto_imp.Name = "nud_auto_imp";
+            this.nud_auto_imp.Size = new System.Drawing.Size(59, 20);
+            this.nud_auto_imp.TabIndex = 18;
+            this.nud_auto_imp.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            // 
+            // nud_auto_rs
+            // 
+            this.nud_auto_rs.Location = new System.Drawing.Point(164, 115);
+            this.nud_auto_rs.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nud_auto_rs.Name = "nud_auto_rs";
+            this.nud_auto_rs.Size = new System.Drawing.Size(59, 20);
+            this.nud_auto_rs.TabIndex = 20;
+            this.nud_auto_rs.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(12, 117);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(134, 13);
+            this.label13.TabIndex = 19;
+            this.label13.Text = "Статический радиус (мм)";
+            // 
+            // nud_auto_rd
+            // 
+            this.nud_auto_rd.Location = new System.Drawing.Point(164, 141);
+            this.nud_auto_rd.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nud_auto_rd.Name = "nud_auto_rd";
+            this.nud_auto_rd.Size = new System.Drawing.Size(59, 20);
+            this.nud_auto_rd.TabIndex = 22;
+            this.nud_auto_rd.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(12, 143);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(146, 13);
+            this.label14.TabIndex = 21;
+            this.label14.Text = "Динамический радиус (мм)";
+            // 
+            // btn_auto_start_stop
+            // 
+            this.btn_auto_start_stop.Location = new System.Drawing.Point(148, 167);
+            this.btn_auto_start_stop.Name = "btn_auto_start_stop";
+            this.btn_auto_start_stop.Size = new System.Drawing.Size(75, 23);
+            this.btn_auto_start_stop.TabIndex = 23;
+            this.btn_auto_start_stop.Text = "Старт";
+            this.btn_auto_start_stop.UseVisualStyleBackColor = true;
+            // 
+            // btn_semi_start_stop
+            // 
+            this.btn_semi_start_stop.Location = new System.Drawing.Point(122, 89);
+            this.btn_semi_start_stop.Name = "btn_semi_start_stop";
+            this.btn_semi_start_stop.Size = new System.Drawing.Size(75, 23);
+            this.btn_semi_start_stop.TabIndex = 24;
+            this.btn_semi_start_stop.Text = "Старт";
+            this.btn_semi_start_stop.UseVisualStyleBackColor = true;
+            // 
+            // btn_graph
+            // 
+            this.btn_graph.Location = new System.Drawing.Point(560, 242);
+            this.btn_graph.Name = "btn_graph";
+            this.btn_graph.Size = new System.Drawing.Size(75, 23);
+            this.btn_graph.TabIndex = 20;
+            this.btn_graph.Text = "Графики";
+            this.btn_graph.UseVisualStyleBackColor = true;
+            // 
+            // main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(351, 380);
+            this.ClientSize = new System.Drawing.Size(638, 380);
+            this.Controls.Add(this.btn_graph);
+            this.Controls.Add(this.tab_mode);
             this.Controls.Add(this.btn_open_file);
             this.Controls.Add(this.lbl_path);
             this.Controls.Add(this.label3);
@@ -226,11 +653,26 @@
             this.Controls.Add(this.rtb_recieved);
             this.Controls.Add(this.rtb_send);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Form1";
+            this.Name = "main_form";
             this.Text = "Терминал V1.0";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tab_mode.ResumeLayout(false);
+            this.manual.ResumeLayout(false);
+            this.semiauto.ResumeLayout(false);
+            this.semiauto.PerformLayout();
+            this.auto.ResumeLayout(false);
+            this.auto.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_semi_midspeed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_semi_a)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_semi_freq)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_auto_freq)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_auto_weight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_auto_coe)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_auto_imp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_auto_rs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_auto_rd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,6 +697,36 @@
         private System.Windows.Forms.Label lbl_path;
         private System.Windows.Forms.Button btn_open_file;
         private System.Windows.Forms.OpenFileDialog of_dialog;
+        private System.Windows.Forms.TabControl tab_mode;
+        private System.Windows.Forms.TabPage manual;
+        private System.Windows.Forms.Label lbl_led;
+        private System.Windows.Forms.Label lbl_left;
+        private System.Windows.Forms.Label lbl_right;
+        private System.Windows.Forms.Label lbl_back;
+        private System.Windows.Forms.Label lbl_forward;
+        private System.Windows.Forms.TabPage semiauto;
+        private System.Windows.Forms.Button btn_semi_start_stop;
+        private System.Windows.Forms.NumericUpDown nud_semi_freq;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.NumericUpDown nud_semi_a;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown nud_semi_midspeed;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TabPage auto;
+        private System.Windows.Forms.Button btn_auto_start_stop;
+        private System.Windows.Forms.NumericUpDown nud_auto_rd;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.NumericUpDown nud_auto_rs;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.NumericUpDown nud_auto_imp;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.NumericUpDown nud_auto_coe;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.NumericUpDown nud_auto_freq;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.NumericUpDown nud_auto_weight;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btn_graph;
     }
 }
 
