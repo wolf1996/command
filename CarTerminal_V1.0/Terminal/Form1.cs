@@ -21,7 +21,7 @@ namespace Terminal
         public event SpeedChange onSpeedChange;
 
         private COMPort com = new COMPort();
-        private CommandSender command_sender;
+        private CommandLinker c_linker;
         private string path_root;
         private string path_file;
 
@@ -29,9 +29,9 @@ namespace Terminal
         public main_form()
         {
             InitializeComponent();
-            command_sender = new CommandSender(this);
-            onKeyStateChange += command_sender.onKeyStateChange;
-            onSpeedChange += command_sender.onSpeedChange;
+            c_linker = new CommandLinker(this);                         // Инициализация компановщика команд
+            onKeyStateChange += c_linker.onKeyStateChange;
+            onSpeedChange += c_linker.onSpeedChange;
             foreach(string port in SerialPort.GetPortNames())           // Заполнение списков COM-портов
                 cb_port.Items.Add(port);
 

@@ -19,16 +19,16 @@ namespace Terminal
     }
 
     //*** Класс отправки команд ***************************************************************************************
-    public class CommandSender
+    public class CommandLinker
     {
         private int speed = 0;
         private KeyState []keys = new KeyState[5];
         public delegate void NewMessage(string text);
         public event NewMessage onNewMessage;
-        Form form_parent;
+        private Form form_parent;
 
         //--- Конструктор ---------------------------------------------------------------------------------------------
-        public CommandSender(main_form parent)
+        public CommandLinker(main_form parent)
         {
             this.form_parent = parent;
             onNewMessage += parent.com_send;
@@ -42,19 +42,25 @@ namespace Terminal
         //--- Обработчик изменения состояния кнопки -------------------------------------------------------------------
         public void onKeyStateChange(Keys key, bool state)
         {
-            if ((key == keys[4].key) && state)
+            if ((key == keys[4].key))                   // Включение\выключние фар
             {
-                keys[4].state = !keys[4].state;
-                send_led_command();
+                if(state)
+                {
+                    keys[4].state = !keys[4].state;
+                    send_led_command();
+                } 
             }
-            else
+            else                                        // Движение в ручном режиме
             {
                 for (int i = 0; i < 4; i++)
                 {
                     if (keys[i].key == key)
+                    {
                         keys[i].state = state;
+                        send_man_move_command();
+                    }
+                        
                 }
-                send_man_move_command();
             }       
         }
 
