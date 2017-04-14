@@ -15,6 +15,7 @@ namespace Terminal
 {
     public partial class main_form : Form
     {
+        public delegate void ModeChange(int mode_num);
         public delegate void KeyStateChange(Keys key, bool state);
         public delegate void SpeedChange(int speed);
         public delegate void SemiParametersChange(int mid_speed, int a, int freq);
@@ -22,6 +23,7 @@ namespace Terminal
         public delegate void Start();
         public delegate void Stop();
 
+        public event ModeChange onModeChange;
         public event KeyStateChange onKeyStateChange;
         public event SpeedChange onSpeedChange;
         public event SemiParametersChange onSemiParametersChange;
@@ -40,6 +42,7 @@ namespace Terminal
             InitializeComponent();
 
             c_linker = new CommandLinker(this);                         // Инициализация компановщика команд
+            onModeChange += c_linker.onModeChange;
             onKeyStateChange += c_linker.onKeyStateChange;
             onSpeedChange += c_linker.onSpeedChange;
             onSemiParametersChange += c_linker.onSemiParametersChange;
@@ -81,7 +84,7 @@ namespace Terminal
                     btn_open_close.Text = "Закрыть";
                 tab_mode.Enabled = true;
                 tab_mode.SelectedIndex = 0;
-                com_send(@"@MAN_ON");
+                onModeChange(tab_mode.SelectedIndex);
             }
             else                                                        // Закрыть COM-порт
             {
@@ -116,7 +119,6 @@ namespace Terminal
                 path_file = of_dialog.FileName;
                 lbl_path.Text = path_file;
             }
-
         }
 
         //--- Отправка файла ------------------------------------------------------------------------------------------
@@ -172,21 +174,7 @@ namespace Terminal
         //--- Выбор режима управления устройством ---------------------------------------------------------------------
         private void tab_mode_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (tab_mode.SelectedIndex)
-            {
-                case 0:
-                    com_send(@"@MAN_ON");
-                    break;
-                case 1:
-                    com_send(@"@SEMI_AUTO_ON");
-                    break;
-                case 2:
-                    com_send(@"@AUTO_ON");
-                    break;
-                default:
-                    com_send(@"@NOT_DETECTED");
-                    break;
-            }
+            onModeChange(tab_mode.SelectedIndex);
         }
 
         //--- Регулировка скорости в ручном режиме --------------------------------------------------------------------

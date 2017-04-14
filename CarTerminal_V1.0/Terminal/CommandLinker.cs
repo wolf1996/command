@@ -21,8 +21,10 @@ namespace Terminal
     //*** Класс компановки команд *************************************************************************************
     public class CommandLinker
     {
+        private int current_mode_num = 0;
         private int speed = 0;
         private KeyState []keys = new KeyState[5];
+        private string []modes = {"@MAN", "@SEMI_AUTO", "@AUTO"};
         public delegate void NewMessage(string text);
         public event NewMessage onNewMessage;
         private Form form_parent;
@@ -37,6 +39,14 @@ namespace Terminal
             keys[2] = new KeyState(Keys.A);
             keys[3] = new KeyState(Keys.D);
             keys[4] = new KeyState(Keys.L);
+        }
+
+        //--- Обработчик изменения режима управления ------------------------------------------------------------------
+        public void onModeChange(int mode_num)
+        {
+            if (current_mode_num != mode_num) onNewMessage(modes[current_mode_num] + @"_OFF");
+            onNewMessage(modes[mode_num] + @"_ON");
+            current_mode_num = mode_num;
         }
 
         //--- Обработчик изменения состояния кнопки -------------------------------------------------------------------
