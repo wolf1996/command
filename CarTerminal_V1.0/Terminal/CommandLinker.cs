@@ -18,7 +18,7 @@ namespace Terminal
         }
     }
 
-    //*** Класс отправки команд ***************************************************************************************
+    //*** Класс компановки команд *************************************************************************************
     public class CommandLinker
     {
         private int speed = 0;
@@ -70,6 +70,30 @@ namespace Terminal
             this.speed = speed;
         }
 
+        //--- Обработчик изменения параметров полуавтоматического режима ----------------------------------------------
+        public void onSemiParametersChange(int mid_speed, int a, int freq)
+        {
+            send_semi_init_command(mid_speed, a, freq);
+        }
+
+        //--- Обработчик изменения параметров автоматического режима --------------------------------------------------
+        public void onAutoParametersChange(int weight, int freq, int coe, int imp, int rd, int rs)
+        {
+            send_auto_init_command(weight, freq, coe, imp, rd, rs);
+        }
+
+        //--- Обработчик нажатия кнопки "Старт" -----------------------------------------------------------------------
+        public void onStart()
+        {
+            onNewMessage(@"@START");
+        }
+
+        //--- Обработчик нажатия кнопки "Стоп" ------------------------------------------------------------------------
+        public void onStop()
+        {
+            onNewMessage(@"@STOP");
+        }
+
         //--- Отправка команды движения в ручном режиме ---------------------------------------------------------------
         private void send_man_move_command()
         {
@@ -88,6 +112,19 @@ namespace Terminal
         {
             if (keys[4].state) onNewMessage(@"@LED_ON");
             else onNewMessage(@"@LED_OFF");
+        }
+
+        //--- Отправка команды инициализации полуавтоматического режима -----------------------------------------------
+        private void send_semi_init_command(int mid_speed, int a, int freq)
+        {
+            onNewMessage(@"@SEMI3:" + mid_speed.ToString() + ";" + a.ToString() + ";" + freq.ToString());
+        }
+
+        //--- Отправка команды инициализации автоматического режима ---------------------------------------------------
+        private void send_auto_init_command(int weight, int freq, int coe, int imp, int rd, int rs)
+        {
+            onNewMessage(@"@AUTO_INIT6:" +  freq.ToString() + ";" + weight.ToString() + ";" + coe.ToString() + ";" + 
+                                            imp.ToString() + ";" + rs.ToString() + ";" + rd.ToString());
         }
     }
 }

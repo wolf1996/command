@@ -16,9 +16,18 @@ namespace Terminal
     public partial class main_form : Form
     {
         public delegate void KeyStateChange(Keys key, bool state);
-        public event KeyStateChange onKeyStateChange;
         public delegate void SpeedChange(int speed);
+        public delegate void SemiParametersChange(int mid_speed, int a, int freq);
+        public delegate void AutoParametersChange(int weight, int freq, int coe, int imp, int rd, int rs);
+        public delegate void Start();
+        public delegate void Stop();
+
+        public event KeyStateChange onKeyStateChange;
         public event SpeedChange onSpeedChange;
+        public event SemiParametersChange onSemiParametersChange;
+        public event AutoParametersChange onAutoParametersChange;
+        public event Start onStart;
+        public event Start onStop;
 
         private COMPort com = new COMPort();
         private CommandLinker c_linker;
@@ -29,9 +38,15 @@ namespace Terminal
         public main_form()
         {
             InitializeComponent();
+
             c_linker = new CommandLinker(this);                         // Инициализация компановщика команд
             onKeyStateChange += c_linker.onKeyStateChange;
             onSpeedChange += c_linker.onSpeedChange;
+            onSemiParametersChange += c_linker.onSemiParametersChange;
+            onAutoParametersChange += c_linker.onAutoParametersChange;
+            onStart += c_linker.onStart;
+            onStop += c_linker.onStop;
+
             foreach(string port in SerialPort.GetPortNames())           // Заполнение списков COM-портов
                 cb_port.Items.Add(port);
 
@@ -163,7 +178,7 @@ namespace Terminal
                     com_send(@"@MAN_ON");
                     break;
                 case 1:
-                    com_send(@"@SEMI_ON");
+                    com_send(@"@SEMI_AUTO_ON");
                     break;
                 case 2:
                     com_send(@"@AUTO_ON");
@@ -219,7 +234,46 @@ namespace Terminal
             onKeyStateChange(e.KeyCode, false);
         }
 
+        //--- Нажатие кнопки "Старт/Стоп" -----------------------------------------------------------------------------
+        private void btn_start_stop_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if(btn.Text == "Старт")
+            {
+                if (btn == btn_semi_start_stop) semi_init();
+                if (btn == btn_auto_start_stop) auto_init();
+                btn.Text = "Стоп";
+                btn.BackColor = Color.Red;
+                onStart();
+            }
+            else
+            {
+                onStop();
+                btn.Text = "Старт";
+                btn.BackColor = Color.Transparent;
+            }
+        }
 
+        //--- Инициализатор полуавтоматического режима работы ---------------------------------------------------------
+        private void semi_init()
+        {
+            int mid_speed = Convert.ToInt32(nud_semi_midspeed.Value);
+            int a = Convert.ToInt32(nud_semi_a.Value);
+            int freq = Convert.ToInt32(nud_semi_freq.Value);
+            onSemiParametersChange(mid_speed, a, freq);
+        }
+
+        //--- Инициализатор автоматического режима работы -------------------------------------------------------------
+        private void auto_init()
+        {
+            int weigth = Convert.ToInt32(nud_auto_weight.Value);
+            int freq = Convert.ToInt32(nud_auto_freq.Value);
+            int coe = Convert.ToInt32(nud_auto_coe.Value);
+            int imp = Convert.ToInt32(nud_auto_imp.Value);
+            int rd = Convert.ToInt32(nud_auto_rd.Value);
+            int rs = Convert.ToInt32(nud_auto_rs.Value);
+
+            onAutoParametersChange(weigth, freq, coe, imp, rd, rs);
+        }
     }
-
 }

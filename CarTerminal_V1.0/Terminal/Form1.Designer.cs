@@ -47,6 +47,9 @@
             this.of_dialog = new System.Windows.Forms.OpenFileDialog();
             this.tab_mode = new System.Windows.Forms.TabControl();
             this.manual = new System.Windows.Forms.TabPage();
+            this.label15 = new System.Windows.Forms.Label();
+            this.nud_man_speed = new System.Windows.Forms.NumericUpDown();
+            this.trb_man_speed = new System.Windows.Forms.TrackBar();
             this.lbl_led = new System.Windows.Forms.Label();
             this.lbl_left = new System.Windows.Forms.Label();
             this.lbl_right = new System.Windows.Forms.Label();
@@ -75,12 +78,11 @@
             this.nud_auto_weight = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
             this.btn_graph = new System.Windows.Forms.Button();
-            this.trb_man_speed = new System.Windows.Forms.TrackBar();
-            this.nud_man_speed = new System.Windows.Forms.NumericUpDown();
-            this.label15 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tab_mode.SuspendLayout();
             this.manual.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_man_speed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trb_man_speed)).BeginInit();
             this.semiauto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_semi_freq)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_semi_a)).BeginInit();
@@ -92,8 +94,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud_auto_coe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_auto_freq)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_auto_weight)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trb_man_speed)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_man_speed)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -290,6 +290,40 @@
             this.manual.Text = "Ручной";
             this.manual.UseVisualStyleBackColor = true;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.SystemColors.Control;
+            this.label15.Location = new System.Drawing.Point(15, 174);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(81, 13);
+            this.label15.TabIndex = 8;
+            this.label15.Text = "Скорость (у.е.)";
+            // 
+            // nud_man_speed
+            // 
+            this.nud_man_speed.BackColor = System.Drawing.SystemColors.Control;
+            this.nud_man_speed.Location = new System.Drawing.Point(111, 172);
+            this.nud_man_speed.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.nud_man_speed.Name = "nud_man_speed";
+            this.nud_man_speed.Size = new System.Drawing.Size(44, 20);
+            this.nud_man_speed.TabIndex = 7;
+            this.nud_man_speed.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nud_man_speed.ValueChanged += new System.EventHandler(this.nud_man_speed_ValueChanged);
+            // 
+            // trb_man_speed
+            // 
+            this.trb_man_speed.Location = new System.Drawing.Point(6, 147);
+            this.trb_man_speed.Maximum = 255;
+            this.trb_man_speed.Name = "trb_man_speed";
+            this.trb_man_speed.Size = new System.Drawing.Size(252, 45);
+            this.trb_man_speed.TabIndex = 5;
+            this.trb_man_speed.ValueChanged += new System.EventHandler(this.trb_man_speed_ValueChanged);
+            // 
             // lbl_led
             // 
             this.lbl_led.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -375,6 +409,7 @@
             this.btn_semi_start_stop.TabIndex = 24;
             this.btn_semi_start_stop.Text = "Старт";
             this.btn_semi_start_stop.UseVisualStyleBackColor = true;
+            this.btn_semi_start_stop.Click += new System.EventHandler(this.btn_start_stop_Click);
             // 
             // nud_semi_freq
             // 
@@ -484,6 +519,7 @@
             this.btn_auto_start_stop.TabIndex = 23;
             this.btn_auto_start_stop.Text = "Старт";
             this.btn_auto_start_stop.UseVisualStyleBackColor = true;
+            this.btn_auto_start_stop.Click += new System.EventHandler(this.btn_start_stop_Click);
             // 
             // nud_auto_rd
             // 
@@ -645,40 +681,6 @@
             this.btn_graph.Text = "Графики";
             this.btn_graph.UseVisualStyleBackColor = true;
             // 
-            // trb_man_speed
-            // 
-            this.trb_man_speed.Location = new System.Drawing.Point(6, 147);
-            this.trb_man_speed.Maximum = 255;
-            this.trb_man_speed.Name = "trb_man_speed";
-            this.trb_man_speed.Size = new System.Drawing.Size(252, 45);
-            this.trb_man_speed.TabIndex = 5;
-            this.trb_man_speed.ValueChanged += new System.EventHandler(this.trb_man_speed_ValueChanged);
-            // 
-            // nud_man_speed
-            // 
-            this.nud_man_speed.BackColor = System.Drawing.SystemColors.Control;
-            this.nud_man_speed.Location = new System.Drawing.Point(111, 172);
-            this.nud_man_speed.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.nud_man_speed.Name = "nud_man_speed";
-            this.nud_man_speed.Size = new System.Drawing.Size(44, 20);
-            this.nud_man_speed.TabIndex = 7;
-            this.nud_man_speed.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nud_man_speed.ValueChanged += new System.EventHandler(this.nud_man_speed_ValueChanged);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.SystemColors.Control;
-            this.label15.Location = new System.Drawing.Point(15, 174);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(81, 13);
-            this.label15.TabIndex = 8;
-            this.label15.Text = "Скорость (у.е.)";
-            // 
             // main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -705,6 +707,8 @@
             this.tab_mode.ResumeLayout(false);
             this.manual.ResumeLayout(false);
             this.manual.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_man_speed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trb_man_speed)).EndInit();
             this.semiauto.ResumeLayout(false);
             this.semiauto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_semi_freq)).EndInit();
@@ -718,8 +722,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud_auto_coe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_auto_freq)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_auto_weight)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trb_man_speed)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_man_speed)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
