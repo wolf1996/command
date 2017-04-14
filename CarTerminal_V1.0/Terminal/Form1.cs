@@ -30,8 +30,8 @@ namespace Terminal
         {
             InitializeComponent();
             command_sender = new CommandSender(this);
-            onKeyStateChange += command_sender.key_state;
-            onSpeedChange += command_sender.speed_change;
+            onKeyStateChange += command_sender.onKeyStateChange;
+            onSpeedChange += command_sender.onSpeedChange;
             foreach(string port in SerialPort.GetPortNames())           // Заполнение списков COM-портов
                 cb_port.Items.Add(port);
 

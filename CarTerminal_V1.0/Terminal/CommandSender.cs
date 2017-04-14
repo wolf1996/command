@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace Terminal
 {
+    //*** Класс состояния кнопок клавиатуры ***************************************************************************
     public class KeyState
     {
         public Keys key;
@@ -16,6 +17,8 @@ namespace Terminal
             this.key = key;
         }
     }
+
+    //*** Класс отправки команд ***************************************************************************************
     public class CommandSender
     {
         private int speed = 0;
@@ -24,6 +27,7 @@ namespace Terminal
         public event NewMessage onNewMessage;
         Form form_parent;
 
+        //--- Конструктор ---------------------------------------------------------------------------------------------
         public CommandSender(main_form parent)
         {
             this.form_parent = parent;
@@ -35,7 +39,8 @@ namespace Terminal
             keys[4] = new KeyState(Keys.L);
         }
 
-        public void key_state(Keys key, bool state)
+        //--- Обработчик изменения состояния кнопки -------------------------------------------------------------------
+        public void onKeyStateChange(Keys key, bool state)
         {
             if ((key == keys[4].key) && state)
             {
@@ -49,16 +54,18 @@ namespace Terminal
                     if (keys[i].key == key)
                         keys[i].state = state;
                 }
-                send_move_command();
+                send_man_move_command();
             }       
         }
 
-        public void speed_change(int speed)
+        //--- Обработчик изменения заданной скорости движения ---------------------------------------------------------
+        public void onSpeedChange(int speed)
         {
             this.speed = speed;
         }
 
-        private void send_move_command()
+        //--- Отправка команды движения в ручном режиме ---------------------------------------------------------------
+        private void send_man_move_command()
         {
             int s = 0;
             int r = 0;
@@ -70,6 +77,7 @@ namespace Terminal
             onNewMessage(@"@MOTION2:" + s.ToString() + ";" + r.ToString());
         }
 
+        //--- Отправка команды включения\выключения фар ---------------------------------------------------------------
         private void send_led_command()
         {
             if (keys[4].state) onNewMessage(@"@LED_ON");
