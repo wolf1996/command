@@ -186,8 +186,7 @@ namespace Terminal
             onSpeedChange(trb_man_speed.Value);
         }
 
-        [DllImport("user32.dll", CharSet = CharSet.Auto, ExactSpelling = true)]
-        private static extern short GetKeyState(int keyCode);
+        //--- Обработка нажатия кнопок клавиатуры в ручном режиме управления ------------------------------------------
         private void tab_mode_KeyDown(object sender, KeyEventArgs e)
         {  
             switch (e.KeyCode)
@@ -211,7 +210,6 @@ namespace Terminal
             }
             onKeyStateChange(e.KeyCode, true);
         }
-
         private void tab_mode_KeyUp(object sender, KeyEventArgs e)
         {
             lbl_forward.BackColor = Color.Transparent;
