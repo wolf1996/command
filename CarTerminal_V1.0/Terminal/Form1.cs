@@ -9,12 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace Terminal
 {
     public partial class main_form : Form
     {
+        public delegate void KeyStateChange(Keys key, bool state);
+        public event KeyStateChange onKeyStateChange;
+        public delegate void SpeedChange(int speed);
+        public event SpeedChange onSpeedChange;
+
         private COMPort com = new COMPort();
+        private CommandSender command_sender;
         private string path_root;
         private string path_file;
 
@@ -22,6 +29,9 @@ namespace Terminal
         public main_form()
         {
             InitializeComponent();
+            command_sender = new CommandSender(this);
+            onKeyStateChange += command_sender.key_state;
+            onSpeedChange += command_sender.speed_change;
             foreach(string port in SerialPort.GetPortNames())           // Заполнение списков COM-портов
                 cb_port.Items.Add(port);
 
@@ -137,7 +147,7 @@ namespace Terminal
         }
 
         //--- Отправка команды по COM-порту ---------------------------------------------------------------------------
-        private void com_send(string text)
+        public void com_send(string text)
         {
             rtb_send.Text += com.send(text) + Environment.NewLine;
             rtb_send.SelectionStart = rtb_send.Text.Length;
@@ -163,6 +173,55 @@ namespace Terminal
                     break;
             }
         }
+
+        //--- Регулировка скорости в ручном режиме --------------------------------------------------------------------
+        private void trb_man_speed_ValueChanged(object sender, EventArgs e)
+        {
+            nud_man_speed.Value = trb_man_speed.Value;
+            onSpeedChange(trb_man_speed.Value);
+        }
+        private void nud_man_speed_ValueChanged(object sender, EventArgs e)
+        {
+            trb_man_speed.Value = Convert.ToInt32(nud_man_speed.Value);
+            onSpeedChange(trb_man_speed.Value);
+        }
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, ExactSpelling = true)]
+        private static extern short GetKeyState(int keyCode);
+        private void tab_mode_KeyDown(object sender, KeyEventArgs e)
+        {  
+            switch (e.KeyCode)
+            {
+                case Keys.W:
+                    lbl_forward.BackColor = Color.Yellow;
+                    break;
+                case Keys.S:
+                    lbl_back.BackColor = Color.Yellow;
+                    break;
+                case Keys.A:
+                    lbl_left.BackColor = Color.Yellow;
+                    break;
+                case Keys.D:
+                    lbl_right.BackColor = Color.Yellow;
+                    break;
+                case Keys.L:
+                    if (lbl_led.BackColor == Color.Yellow) lbl_led.BackColor = Color.Transparent;
+                    else lbl_led.BackColor = Color.Yellow;
+                    break;
+            }
+            onKeyStateChange(e.KeyCode, true);
+        }
+
+        private void tab_mode_KeyUp(object sender, KeyEventArgs e)
+        {
+            lbl_forward.BackColor = Color.Transparent;
+            lbl_back.BackColor = Color.Transparent;
+            lbl_left.BackColor = Color.Transparent;
+            lbl_right.BackColor = Color.Transparent;
+            onKeyStateChange(e.KeyCode, false);
+        }
+
+
     }
 
 }
