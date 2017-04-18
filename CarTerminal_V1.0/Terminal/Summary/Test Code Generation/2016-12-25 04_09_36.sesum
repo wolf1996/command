@@ -1,0 +1,196 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Explored Machine(s) Summary</title>
+    <style type="text/css">
+        BODY
+        {
+            background-color: white;
+            font-family: "Verdana" , sans-serif;
+            font-size: 100%;
+            margin-left: 0px;
+            margin-top: 0px;
+        }
+        P
+        {
+            font-family: "Verdana" ,sans-serif;
+            font-size: 80%;
+            line-height: 12pt;
+            margin-bottom: 0px;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+        .note
+        {
+            background-color: #ffffff;
+            color: #336699;
+            font-family: "Verdana" ,sans-serif;
+            font-size: 100%;
+            margin-bottom: 0px;
+            margin-left: 0px;
+            margin-top: 0px;
+            padding-right: 10px;
+        }
+        .infotable
+        {
+            background-color: #f0f0e0;
+            border-bottom: #ffffff 0px solid;
+            border-collapse: collapse;
+            border-left: #ffffff 0px solid;
+            border-right: #ffffff 0px solid;
+            border-top: #ffffff 0px solid;
+            font-size: 70%;
+            margin-left: 10px;
+        }
+        .issuetitle
+        {
+            background-color: #ffffff;
+            border-bottom: #dcdcdc 1px solid;
+            border-top: #dcdcdc 1px;
+            color: #003366;
+            font-weight: normal;
+        }
+        .header
+        {
+            background-color: #cecf9c;
+            border-bottom: #ffffff 1px solid;
+            border-left: #ffffff 1px solid;
+            border-right: #ffffff 1px solid;
+            border-top: #ffffff 1px solid;
+            color: #000000;
+            font-weight: bold;
+        }
+        .issuenone
+        {
+            background-color: #ffffff;
+            border-bottom: 0px;
+            border-left: 0px;
+            border-right: 0px;
+            border-top: 0px;
+            color: #000000;
+            font-weight: normal;
+        }
+        .content
+        {
+            background-color: #e7e7ce;
+            border-bottom: #ffffff 1px solid;
+            border-left: #ffffff 1px solid;
+            border-right: #ffffff 1px solid;
+            border-top: #ffffff 1px solid;
+            padding-left: 3px;
+        }
+        .issuecontent
+        {
+            background-color: #ffffff;
+            border-bottom: #dcdcdc 1px solid;
+            border-top: #dcdcdc 1px solid;
+            padding-left: 3px;
+        }
+        H1
+        {
+            background-color: #003366;
+            border-bottom: #336699 6px solid;
+            color: #ffffff;
+            font-size: 130%;
+            font-weight: normal;
+            margin: 0em0em0em-20px;
+            padding-bottom: 8px;
+            padding-left: 30px;
+            padding-top: 16px;
+        }
+        H2
+        {
+            color: #000000;
+            font-size: 80%;
+            font-weight: bold;
+            margin-bottom: 3px;
+            margin-left: 10px;
+            margin-top: 20px;
+            padding-left: 0px;
+        }
+    </style>
+</head>
+<body style="margin: 0px;">
+    <h1>
+        Test Code Generation&nbsp;Summary</h1>
+    <p>
+        <span class="note"><b>Start time:  Sunday, December 25, 2016 4:09:36 AM</b>
+            <br />
+            <b>End time: &nbsp;&nbsp;Sunday, December 25, 2016 4:09:36 AM</b><br />
+        </span>
+    </p>
+    <h2>
+        Summary</h2>
+    <table cellpadding="2" cellspacing="0" width="98%" border="1" class="infotable">
+        <tr style="height: 25px">
+            <td nowrap="nowrap" class="header" width="350px">
+                Successfully test code generated Machine(s):
+            </td>
+            <td nowrap="nowrap" class="header">
+                1
+            </td>
+        </tr>
+        <tr style="height: 25px">
+            <td nowrap="1" class="header">
+                Failed test code generated Machine(s):
+            </td>
+            <td nowrap="nowrap" class="header">
+                0
+            </td>
+        </tr>
+        <tr style="height: 25px">
+            <td nowrap="nowrap" class="header">
+                Aborted test code generated Machine(s):
+            </td>
+            <td nowrap="nowrap" class="header">
+               0
+            </td>
+        </tr>
+        <tr style="height: 25px">
+            <td nowrap="nowrap" class="header">
+                Ignored test code generated Machine(s):
+            </td>
+            <td nowrap="nowrap" class="header">
+               3
+            </td>
+        </tr>
+    </table>
+    <h2>Successfully test code generated Machine(s):</h2><table cellpadding="2" cellspacing="0" width="98%" border="1" class="infotable">
+<tr>
+<td nowrap="1" class="header" width="150px">Project</td>
+<td nowrap="1" class="header" width="200px">Machine</td>
+<td nowrap="1" class="header">Details</td>
+</tr>
+<tr class="row">
+<td class="content">SpecExplorer</td>
+<td class="content">ComPortTestSuite</td>
+<td class="content">All inputs for machine 'ComPortTestSuite' are up-to-date.<br/>Loaded exploration result from <a href="_file:///C:\IU7\Testing\Terminal\Terminal\SpecExplorer\ExplorationResults\ComPortTestSuite.seexpl">'C:\IU7\Testing\Terminal\Terminal\SpecExplorer\ExplorationResults\ComPortTestSuite.seexpl'</a>.<br/>Generated code is saved to <a href="_file:///C:\IU7\Testing\Terminal\Terminal\SpecExplorer.TestSuite\ComPortTestSuite.cs">C:\IU7\Testing\Terminal\Terminal\SpecExplorer.TestSuite\ComPortTestSuite.cs</a>.<br/></td>
+</tr>
+</table>
+  
+    <h2>Ignored test code generated Machine(s):</h2><table cellpadding="2" cellspacing="0" width="98%" border="1" class="infotable">
+<tr>
+<td nowrap="1" class="header" width="150px">Project</td>
+<td nowrap="1" class="header" width="200px">Machine</td>
+<td nowrap="1" class="header">Details</td>
+</tr>
+<tr class="row">
+<td class="content">SpecExplorer</td>
+<td class="content">ComPortModelProgram</td>
+<td class="content">Machine is not testable.<br/></td>
+</tr>
+<tr class="row">
+<td class="content">SpecExplorer</td>
+<td class="content">OpenCloseScenario</td>
+<td class="content">Machine is not testable.<br/></td>
+</tr>
+<tr class="row">
+<td class="content">SpecExplorer</td>
+<td class="content">SlicedOpenCloseModelProgram</td>
+<td class="content">Machine is not testable.<br/></td>
+</tr>
+</table>
+
+</body>
+</html>
+
