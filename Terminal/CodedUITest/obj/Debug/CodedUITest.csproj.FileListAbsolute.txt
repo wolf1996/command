@@ -1,5 +1,0 @@
-C:\IU7\Testing\Terminal\Terminal\CodedUITest\bin\Debug\CodedUITest.dll
-C:\IU7\Testing\Terminal\Terminal\CodedUITest\bin\Debug\CodedUITest.pdb
-C:\IU7\Testing\Terminal\Terminal\CodedUITest\obj\Debug\CodedUITest.dll
-C:\IU7\Testing\Terminal\Terminal\CodedUITest\obj\Debug\CodedUITest.pdb
-C:\IU7\Testing\Terminal\Terminal\CodedUITest\obj\Debug\CodedUITest.csprojResolveAssemblyReference.cache

@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<GenericTest name="GenericTest1" storage="c:\iu7\testing\terminal\terminal\auto_test\generictest1.generictest" id="d774e0e7-3bee-4589-b392-c1de8d770456" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
-  <DeploymentItems>
-    <DeploymentItem filename="Terminal\bin\Debug\Terminal.exe" />
-  </DeploymentItems>
-  <Command filename="test com" workingDirectory="%TestOutputDirectory%" />
-  <SummaryXmlFile path="%TestOutputDirectory%\&lt;Enter summary file name here&gt;" />
-</GenericTest>

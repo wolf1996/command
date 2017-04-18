@@ -1,7 +1,0 @@
-C:\IU7\Testing\Terminal\Terminal\SpecExplorerTemp\bin\Debug\SpecExplorerTemp.dll
-C:\IU7\Testing\Terminal\Terminal\SpecExplorerTemp\bin\Debug\SpecExplorerTemp.pdb
-C:\IU7\Testing\Terminal\Terminal\SpecExplorerTemp\bin\Debug\SpecExplorerTemp.Sample.dll
-C:\IU7\Testing\Terminal\Terminal\SpecExplorerTemp\bin\Debug\SpecExplorerTemp.Sample.pdb
-C:\IU7\Testing\Terminal\Terminal\SpecExplorerTemp\obj\Debug\SpecExplorerTemp.csprojResolveAssemblyReference.cache
-C:\IU7\Testing\Terminal\Terminal\SpecExplorerTemp\obj\Debug\SpecExplorerTemp.dll
-C:\IU7\Testing\Terminal\Terminal\SpecExplorerTemp\obj\Debug\SpecExplorerTemp.pdb
