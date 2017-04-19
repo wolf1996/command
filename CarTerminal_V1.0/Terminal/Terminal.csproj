@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Terminal</RootNamespace>
     <AssemblyName>Terminal</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <RanorexVersion>6.2</RanorexVersion>
     <RanorexTargetsPath>$(MSBuildExtensionsPath)\Ranorex$(RanorexVersion)\Ranorex.MSBuild.Targets</RanorexTargetsPath>
@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,34 +32,22 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ranorex.Core" />
-    <Reference Include="Ranorex.Plugin.Cef" />
-    <Reference Include="Ranorex.Plugin.ChromeWeb" />
-    <Reference Include="Ranorex.Plugin.Flex" />
-    <Reference Include="Ranorex.Plugin.Java" />
-    <Reference Include="Ranorex.Plugin.Mobile" />
-    <Reference Include="Ranorex.Plugin.MozillaWeb" />
-    <Reference Include="Ranorex.Plugin.Msaa" />
-    <Reference Include="Ranorex.Plugin.Office" />
-    <Reference Include="Ranorex.Plugin.Qt" />
-    <Reference Include="Ranorex.Plugin.RawText" />
-    <Reference Include="Ranorex.Plugin.Sap" />
-    <Reference Include="Ranorex.Plugin.Uia" />
-    <Reference Include="Ranorex.Plugin.Web" />
-    <Reference Include="Ranorex.Plugin.WebDriver" />
-    <Reference Include="Ranorex.Plugin.Win32" />
-    <Reference Include="Ranorex.Plugin.WinForms" />
-    <Reference Include="Ranorex.Plugin.Wpf" />
     <Reference Include="SpecRun.SpecFlowPlugin">
       <HintPath>..\packages\SpecRun.SpecFlow.1.5.2\lib\net45\SpecRun.SpecFlowPlugin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -85,6 +74,12 @@
       <BoundTo>88f07ff4-5eb6-4e64-9330-8ffaba1d0d48</BoundTo>
       <id>71ad2504-d1c7-425f-9c00-60641d1284a5</id>
     </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs">
       <id>106219f3-f843-442c-a85e-4d4a90163a28</id>
     </Compile>
@@ -98,6 +93,9 @@
       <DependentUpon>Form1.cs</DependentUpon>
       <BoundTo>88f07ff4-5eb6-4e64-9330-8ffaba1d0d48</BoundTo>
       <id>fe7ef6b4-7fcf-4c47-99f9-e4ba027b6842</id>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
