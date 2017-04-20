@@ -44,8 +44,8 @@ namespace Terminal
         //--- Обработчик изменения режима управления ------------------------------------------------------------------
         public void onModeChange(int mode_num)
         {
-            if (current_mode_num != mode_num) onNewMessage(modes[current_mode_num] + @"_OFF");
-            onNewMessage(modes[mode_num] + @"_ON");
+            //if (current_mode_num != mode_num) onNewMessage(modes[current_mode_num] + @"_OFF");
+            send_msg(modes[mode_num] + @"_ON");
             current_mode_num = mode_num;
         }
 
@@ -95,13 +95,13 @@ namespace Terminal
         //--- Обработчик нажатия кнопки "Старт" -----------------------------------------------------------------------
         public void onStart()
         {
-            onNewMessage(@"@START");
+            send_msg(@"@START");
         }
 
         //--- Обработчик нажатия кнопки "Стоп" ------------------------------------------------------------------------
         public void onStop()
         {
-            onNewMessage(@"@STOP");
+            send_msg(@"@STOP");
         }
 
         //--- Отправка команды движения в ручном режиме ---------------------------------------------------------------
@@ -114,27 +114,34 @@ namespace Terminal
             if(keys[2].state) r = 1;
             if(keys[3].state) r = -1;
             s *= speed;
-            onNewMessage(@"@MOTION2:" + s.ToString() + ";" + r.ToString());
+            send_msg(@"@MOTION2:" + s.ToString() + ";" + r.ToString());
         }
 
         //--- Отправка команды включения\выключения фар ---------------------------------------------------------------
         private void send_led_command()
         {
-            if (keys[4].state) onNewMessage(@"@LED_ON");
-            else onNewMessage(@"@LED_OFF");
+            if (keys[4].state) send_msg(@"@LED_ON");
+            else send_msg(@"@LED_OFF");
         }
 
         //--- Отправка команды инициализации полуавтоматического режима -----------------------------------------------
         private void send_semi_init_command(int mid_speed, int a, int freq)
         {
-            onNewMessage(@"@SEMI3:" + mid_speed.ToString() + ";" + a.ToString() + ";" + freq.ToString());
+            send_msg(@"@SEMI3:" + mid_speed.ToString() + ";" + a.ToString() + ";" + freq.ToString());
         }
 
         //--- Отправка команды инициализации автоматического режима ---------------------------------------------------
         private void send_auto_init_command(int weight, int freq, int coe, int imp, int rd, int rs)
         {
-            onNewMessage(@"@AUTO_INIT6:" +  freq.ToString() + ";" + weight.ToString() + ";" + coe.ToString() + ";" + 
+            send_msg(@"@AUTO_INIT6:" + freq.ToString() + ";" + weight.ToString() + ";" + coe.ToString() + ";" + 
                                             imp.ToString() + ";" + rs.ToString() + ";" + rd.ToString());
+        }
+
+        //--- Отправка сообщения только в случае, если COM-порт свободен ----------------------------------------------
+        private void send_msg(string text)
+        {
+            while (!(form_parent as main_form).com_state) { }
+            onNewMessage(text);
         }
     }
 }

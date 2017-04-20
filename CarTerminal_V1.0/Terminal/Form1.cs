@@ -35,6 +35,8 @@ namespace Terminal
         private CommandLinker c_linker;
         private string path_root;
         private string path_file;
+        private string last_command = "";
+        public bool com_state = true;
 
         //--- Конструктор по-умолчанию --------------------------------------------------------------------------------
         public main_form()
@@ -108,6 +110,12 @@ namespace Terminal
                 rtb_recieved.Text += msg + Environment.NewLine;
                 rtb_recieved.SelectionStart = rtb_recieved.Text.Length;
                 rtb_recieved.ScrollToCaret();
+                if (!CommandReciever.isCorrect(msg, last_command)) com_send(last_command);
+                else
+                {
+                    com_state = true;
+                    last_command = "";
+                }
             }));
         }
 
@@ -169,6 +177,8 @@ namespace Terminal
             rtb_send.Text += com.send(text) + Environment.NewLine;
             rtb_send.SelectionStart = rtb_send.Text.Length;
             rtb_send.ScrollToCaret();
+            last_command = text;
+            com_state = CommandReciever.isCorrect("", last_command);
         }
 
         //--- Выбор режима управления устройством ---------------------------------------------------------------------

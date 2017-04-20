@@ -76,7 +76,7 @@ namespace Terminal
         //--- Автоответчик --------------------------------------------------------------------------------------------
         private void test_msg(string msg) 
         {
-            string answer = CommandTest.AnswerToCmd(msg); // генерирую ответ
+            string answer = CommandTest.AnswerToCmd(msg);   // генерирую ответ
             if ((CommandTest.Current_mode_number != 0) && answer.Equals("@START_APPLY"))
             {
                 (sender_thread = new Thread(new ThreadStart(AutoGenCmd))).Start();
