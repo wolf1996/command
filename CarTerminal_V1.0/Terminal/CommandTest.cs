@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace Terminal
 {
-    public static class CommandTest
+    public class CommandTest
     {
-        static Random rand = new Random(DateTime.Now.Millisecond);
-        static double last_time = 0;
-        /// <returns>ответ на сообщение</returns>
-        public static string AnswerToCmd(string msg, double time_expectation, int current_mode_number) 
+        public string ReceiveCmd(string msg)
         {
             string[] cmd = msg.Split(':');
-            string answer = "";
+            string[] parameters;
+            string answer;
 
             switch (cmd[0])
             {
@@ -43,14 +41,7 @@ namespace Terminal
                     answer = "";
                     break;
                 case "@START": // ответ IMU7/ENC3 в автоматическом режиме
-                    if (current_mode_number == 0)
-                    {
-                        answer = "@START_APPLY";
-                    }
-                    else
-                    {
-                        answer = AutoGenCmd();
-                    }
+                    answer = "@START_APPLY";
                     break;
                 case "@STOP":
                     answer = "@STOP_APPLY";
@@ -75,23 +66,16 @@ namespace Terminal
                         answer = "";
                     }
                     break;
-                case "@SEMI3": // @SEMI2:mid_speed;a;freq
-                    if (time_expectation > 300)
-                    {
-                        answer = "@STOP";
-                    }
-                    else
-                    {
-                        answer = "@SEMI_APPLY";
-                    }
-                    break;
                 case "@AUTO_INIT6": // @AUTO_INIT6: freq; weight; coe; imp; radius_static; radius_dynamic
                     answer = "@AUTO_INIT_APPLY";
                     break;
                 case "IMU7": // IMU7:time;axel_x;axel_y;axel_z;gyro_x;gyro_y;gyro_z
+                    // parameters = msg.Split(';');
+                    // ответ всегда пустой?
                     answer = "";
                     break;
                 case "ENC3": // ENC3:time;enc_l;enc_r
+                    // ответ всегда пустой?
                     answer = "";
                     break;
 
@@ -101,29 +85,6 @@ namespace Terminal
             }
 
             return answer;
-        }
-
-        private static string AutoGenCmd()
-        {
-            int n_rand_params;
-            string cmd = "";
-            if (rand.Next(0, 1) == 0)
-            {
-                n_rand_params = 6;
-                cmd += "@IMU7:";
-            }
-            else
-            {
-                n_rand_params = 2;
-                cmd += "ENC3:";
-            }
-            last_time += rand.NextDouble();
-            cmd += last_time;
-            for (int i = 0; i < n_rand_params; i++)
-            {
-                cmd += ";" + rand.NextDouble();
-            }
-            return cmd;
         }
     }
 }

@@ -16,11 +16,5 @@ namespace Terminal
         {
             InitializeComponent();
         }
-
-        public void test_msg(string msg, double time_expectation, int current_mode_number)
-        {
-            rtb_test_received.Text += msg;
-            rtb_test_send.Text += CommandTest.AnswerToCmd(msg, time_expectation, current_mode_number);
-        }
     }
 }
