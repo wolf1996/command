@@ -87,38 +87,41 @@ namespace Terminal
                     if (sender_thread.IsAlive)
                         sender_thread.Abort();
             }
-            com_send(answer);  // отправлю ответ на полученную команду
+            com_send(answer);  // Отправлю ответ на полученную команду
         }
 
-        //--- генерация показателей датчиков --------------------------------------------------------------------------
+        //--- Генерация показаний датчиков ----------------------------------------------------------------------------
         private void AutoGenCmd()
         {
             double last_time = 0;
             Random rand = new Random(DateTime.Now.Millisecond);
-            int n_rand_params;
             string cmd = "";
-
+            int cnt = 0;
             while (true)
             {
-                if (rand.Next(0, 1) == 0)
+                int pause_period = rand.Next(500, 1200);        // Генерируем значение time
+                Thread.Sleep(pause_period);
+                last_time += pause_period;
+
+                if ((cnt % 2) == 0)
                 {
-                    n_rand_params = 6;
-                    cmd += "@IMU7:";
+                    cmd = "@IMU7:" + last_time;
+                    for (int i = 0; i < 6; i++)
+                    {
+                        cmd += ";" + String.Format("{0:0.000}", rand.NextDouble());
+                    }
                 }
                 else
                 {
-                    n_rand_params = 2;
-                    cmd += "ENC3:";
+                    cmd = "@ENC3:" + last_time;
+                    for (int i = 0; i < 2; i++)
+                    {
+                        cmd += ";" + Convert.ToInt32(rand.NextDouble()*100.0);
+                    }
                 }
-                int pause_period = rand.Next(500, 1200);
-                Thread.Sleep(pause_period);
-                last_time += pause_period;
-                cmd += last_time;
-                for (int i = 0; i < n_rand_params; i++)
-                {
-                    cmd += ";" + rand.NextDouble() + "\n";
-                }
+
                 com_send(cmd);
+                cnt++;
             }
         }
 

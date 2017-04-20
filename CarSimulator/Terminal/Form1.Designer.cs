@@ -57,7 +57,7 @@
             this.groupBox1.Controls.Add(this.cb_port);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(283, 77);
+            this.groupBox1.Size = new System.Drawing.Size(251, 58);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Настройки соединения";
@@ -65,7 +65,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(115, 16);
+            this.label2.Location = new System.Drawing.Point(98, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 3;
@@ -82,14 +82,14 @@
             "38400",
             "57600",
             "115200"});
-            this.cb_baudrate.Location = new System.Drawing.Point(118, 32);
+            this.cb_baudrate.Location = new System.Drawing.Point(100, 32);
             this.cb_baudrate.Name = "cb_baudrate";
             this.cb_baudrate.Size = new System.Drawing.Size(73, 21);
             this.cb_baudrate.TabIndex = 2;
             // 
             // btn_open_close
             // 
-            this.btn_open_close.Location = new System.Drawing.Point(210, 32);
+            this.btn_open_close.Location = new System.Drawing.Point(179, 31);
             this.btn_open_close.Name = "btn_open_close";
             this.btn_open_close.Size = new System.Drawing.Size(67, 21);
             this.btn_open_close.TabIndex = 1;
@@ -118,7 +118,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(237, 172);
+            this.label6.Location = new System.Drawing.Point(350, 134);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 13);
             this.label6.TabIndex = 11;
@@ -127,7 +127,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(58, 172);
+            this.label5.Location = new System.Drawing.Point(89, 134);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 13);
             this.label5.TabIndex = 10;
@@ -135,25 +135,25 @@
             // 
             // rtb_recieved
             // 
-            this.rtb_recieved.Location = new System.Drawing.Point(182, 188);
+            this.rtb_recieved.Location = new System.Drawing.Point(258, 150);
             this.rtb_recieved.Name = "rtb_recieved";
             this.rtb_recieved.ReadOnly = true;
-            this.rtb_recieved.Size = new System.Drawing.Size(164, 180);
+            this.rtb_recieved.Size = new System.Drawing.Size(237, 218);
             this.rtb_recieved.TabIndex = 9;
             this.rtb_recieved.Text = "";
             // 
             // rtb_send
             // 
-            this.rtb_send.Location = new System.Drawing.Point(12, 188);
+            this.rtb_send.Location = new System.Drawing.Point(5, 150);
             this.rtb_send.Name = "rtb_send";
             this.rtb_send.ReadOnly = true;
-            this.rtb_send.Size = new System.Drawing.Size(164, 180);
+            this.rtb_send.Size = new System.Drawing.Size(237, 218);
             this.rtb_send.TabIndex = 8;
             this.rtb_send.Text = "";
             // 
             // btn_send
             // 
-            this.btn_send.Location = new System.Drawing.Point(223, 91);
+            this.btn_send.Location = new System.Drawing.Point(340, 47);
             this.btn_send.Name = "btn_send";
             this.btn_send.Size = new System.Drawing.Size(72, 23);
             this.btn_send.TabIndex = 12;
@@ -163,14 +163,14 @@
             // 
             // tb_send_command
             // 
-            this.tb_send_command.Location = new System.Drawing.Point(13, 94);
+            this.tb_send_command.Location = new System.Drawing.Point(269, 21);
             this.tb_send_command.Name = "tb_send_command";
-            this.tb_send_command.Size = new System.Drawing.Size(204, 20);
+            this.tb_send_command.Size = new System.Drawing.Size(226, 20);
             this.tb_send_command.TabIndex = 13;
             // 
             // btn_send_file
             // 
-            this.btn_send_file.Location = new System.Drawing.Point(123, 120);
+            this.btn_send_file.Location = new System.Drawing.Point(8, 105);
             this.btn_send_file.Name = "btn_send_file";
             this.btn_send_file.Size = new System.Drawing.Size(106, 23);
             this.btn_send_file.TabIndex = 15;
@@ -181,7 +181,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 146);
+            this.label3.Location = new System.Drawing.Point(109, 81);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 16;
@@ -190,7 +190,7 @@
             // lbl_path
             // 
             this.lbl_path.AutoSize = true;
-            this.lbl_path.Location = new System.Drawing.Point(49, 146);
+            this.lbl_path.Location = new System.Drawing.Point(143, 81);
             this.lbl_path.Name = "lbl_path";
             this.lbl_path.Size = new System.Drawing.Size(22, 13);
             this.lbl_path.TabIndex = 17;
@@ -198,7 +198,7 @@
             // 
             // btn_open_file
             // 
-            this.btn_open_file.Location = new System.Drawing.Point(14, 120);
+            this.btn_open_file.Location = new System.Drawing.Point(8, 76);
             this.btn_open_file.Name = "btn_open_file";
             this.btn_open_file.Size = new System.Drawing.Size(98, 23);
             this.btn_open_file.TabIndex = 18;
@@ -214,7 +214,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(351, 380);
+            this.ClientSize = new System.Drawing.Size(501, 380);
             this.Controls.Add(this.btn_open_file);
             this.Controls.Add(this.lbl_path);
             this.Controls.Add(this.label3);
@@ -227,7 +227,7 @@
             this.Controls.Add(this.rtb_send);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
-            this.Text = "Терминал V1.0";
+            this.Text = "Симулятор для CarTerminal V1.0";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

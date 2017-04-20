@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace Terminal  
 {
     /// <summary>
-    /// учитывается время с последней команды
-    /// ответы на все простые команды
+    /// Учитывается время с последней команды
+    /// Ответы на все простые команды
     /// 
     /// </summary>
     public static class CommandTest
@@ -60,26 +60,16 @@ namespace Terminal
                 case "@LED_OFF":
                     answer = "";
                     break;
-                case "@START": // ответ показания IMU7/ENC3 в автоматическом режиме
+                case "@START":      // ответ показания IMU7/ENC3 в автоматическом режиме
                     answer = "@START_APPLY";
                     break;
                 case "@STOP":
                     answer = "@STOP_APPLY";
                     break;
-                case "@MOTION2": // @MOTION2:speed;rotation
+                case "@MOTION2":    // @MOTION2:speed;rotation
                     if (time_diff > 300)
                     {
-                        answer = "@STOP";
-                    }
-                    else
-                    {
-                        answer = "";
-                    }
-                    break;
-                case "@SEMI2": // @SEMI2:speed;rotation
-                    if (time_diff > 300)
-                    {
-                        answer = "@STOP";
+                        answer = "@STOP_APPLY";
                     }
                     else
                     {
@@ -89,11 +79,11 @@ namespace Terminal
                 case "@SEMI3": // @SEMI2:mid_speed;a;freq
                     if (time_diff > 300)
                     {
-                        answer = "@STOP";
+                        answer = "@STOP_APPLY";
                     }
                     else
                     {
-                        answer = "@SEMI_APPLY";
+                        answer = "";
                     }
                     break;
                 case "@AUTO_INIT6": // @AUTO_INIT6: freq; weight; coe; imp; radius_static; radius_dynamic
