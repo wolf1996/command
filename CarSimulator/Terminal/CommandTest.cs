@@ -14,9 +14,13 @@ namespace Terminal
     public static class CommandTest
     {
         static private Random rand = new Random(DateTime.Now.Millisecond);
-        static private double last_time = 0;
         static private int last_cmd_time = DateTime.Now.Millisecond;
         static private int current_mode_number = 0;
+
+        static public int Current_mode_number
+        {
+            get { return current_mode_number;  }
+        }
         /// <returns>ответ на сообщение</returns>
         public static string AnswerToCmd(string msg)
         {
@@ -57,15 +61,7 @@ namespace Terminal
                     answer = "";
                     break;
                 case "@START": // ответ показания IMU7/ENC3 в автоматическом режиме
-                    if (current_mode_number == 0)
-                    {
-                        answer = "@START_APPLY";
-                    }
-                    else
-                    {
-                        //answer = "@START_APPLY";
-                        answer = AutoGenCmd();
-                    }
+                    answer = "@START_APPLY";
                     break;
                 case "@STOP":
                     answer = "@STOP_APPLY";
@@ -116,29 +112,6 @@ namespace Terminal
             }
 
             return answer;
-        }
-
-        private static string AutoGenCmd()
-        {
-            int n_rand_params;
-            string cmd = "";
-            if (rand.Next(0, 1) == 0)
-            {
-                n_rand_params = 6;
-                cmd += "@IMU7:";
-            }
-            else
-            {
-                n_rand_params = 2;
-                cmd += "ENC3:";
-            }
-            last_time += rand.Next(50, 120);
-            cmd += last_time;
-            for (int i = 0; i < n_rand_params; i++)
-            {
-                cmd += ";" + rand.NextDouble();
-            }
-            return cmd;
         }
     }
 }

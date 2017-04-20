@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.IO.Ports;
 using System.IO;
 
+using System.Threading;
+
 namespace Terminal
 {
     public partial class Form1 : Form
@@ -17,7 +19,8 @@ namespace Terminal
         private COMPort com = new COMPort();
         private string path_root;
         private string path_file;
-        private static object locking = new Object();
+
+        static private Thread sender_thread;
 
         //--- Конструктор по-умолчанию --------------------------------------------------------------------------------
         public Form1()
@@ -74,8 +77,51 @@ namespace Terminal
         private void test_msg(string msg) 
         {
             string answer = CommandTest.AnswerToCmd(msg); // генерирую ответ
+            if ((CommandTest.Current_mode_number != 0) && answer.Equals("@START_APPLY"))
+            {
+                (sender_thread = new Thread(new ThreadStart(AutoGenCmd))).Start();
+            }
+            else
+            {
+                if (sender_thread != null)
+                    if (sender_thread.IsAlive)
+                        sender_thread.Abort();
+            }
             com_send(answer);  // отправлю ответ на полученную команду
         }
+
+        //--- генерация показателей датчиков --------------------------------------------------------------------------
+        private void AutoGenCmd()
+        {
+            double last_time = 0;
+            Random rand = new Random(DateTime.Now.Millisecond);
+            int n_rand_params;
+            string cmd = "";
+
+            while (true)
+            {
+                if (rand.Next(0, 1) == 0)
+                {
+                    n_rand_params = 6;
+                    cmd += "@IMU7:";
+                }
+                else
+                {
+                    n_rand_params = 2;
+                    cmd += "ENC3:";
+                }
+                int pause_period = rand.Next(500, 1200);
+                Thread.Sleep(pause_period);
+                last_time += pause_period;
+                cmd += last_time;
+                for (int i = 0; i < n_rand_params; i++)
+                {
+                    cmd += ";" + rand.NextDouble() + "\n";
+                }
+                com_send(cmd);
+            }
+        }
+
         //--- Прием сообщений -----------------------------------------------------------------------------------------
         private void recieve_msg(string msg)
         {
@@ -141,7 +187,7 @@ namespace Terminal
         }
 
         //--- Отправка команды по COM-порту ---------------------------------------------------------------------------
-        private void com_send(string text)
+        public void com_send(string text)
         {
             rtb_recieved.Invoke((MethodInvoker)(delegate()
             {
