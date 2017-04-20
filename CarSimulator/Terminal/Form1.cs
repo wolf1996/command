@@ -19,6 +19,7 @@ namespace Terminal
         private COMPort com = new COMPort();
         private string path_root;
         private string path_file;
+        private bool thread_flag = false;
 
         static private Thread sender_thread;
 
@@ -79,13 +80,19 @@ namespace Terminal
             string answer = CommandTest.AnswerToCmd(msg);   // генерирую ответ
             if ((CommandTest.Current_mode_number != 0) && answer.Equals("@START_APPLY"))
             {
-                (sender_thread = new Thread(new ThreadStart(AutoGenCmd))).Start();
+                if (!thread_flag) (sender_thread = new Thread(new ThreadStart(AutoGenCmd))).Start();
+                thread_flag = true;
             }
             else
             {
                 if (sender_thread != null)
+                {
                     if (sender_thread.IsAlive)
+                    {
                         sender_thread.Abort();
+                        thread_flag = false;
+                    }
+                }        
             }
             com_send(answer);  // Отправлю ответ на полученную команду
         }
