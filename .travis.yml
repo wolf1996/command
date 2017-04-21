@@ -1,14 +1,15 @@
 language: csharp
 solution: CarSimulator/Terminal.sln
-mono: none
-sudo: required
-dotnet: 1.0.1
-dist: trusty
+#mono: none
+#sudo: required
+#dotnet: 1.0.1
+#dist: trusty
 install:
   - sudo apt-get install -y gtk-sharp2
   - sudo apt-get install nunit-console
   - sudo apt-get install mono-devel mono-gmcs
-  - dotnet restore CarSimulator/Terminal.sln
+  - nuget restore CarSimulator/Terminal.sln
+  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 #  - dotnet install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
 script:
   - xbuild /p:Configuration=Release CarSimulator/Terminal.sln
