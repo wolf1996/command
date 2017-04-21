@@ -9,6 +9,7 @@ install:
   - sudo apt-get install nunit-console
   - sudo apt-get install mono-devel mono-gmcs
   - dotnet restore CarSimulator/Terminal.sln
+#  - dotnet install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
 script:
   - xbuild /p:Configuration=Release CarSimulator/Terminal.sln
-  - mono ./packages/xunit.runners.*/tools/xunit.console.clr4.exe ./CarSimulator/Terminal/bin/Release/TechTalk.SpecRun.dll
+  - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./CarSimulator/Terminal/bin/Release/TechTalk.SpecRun.dll
