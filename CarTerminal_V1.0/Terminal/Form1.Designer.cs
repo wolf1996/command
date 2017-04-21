@@ -680,6 +680,7 @@
             this.btn_graph.TabIndex = 20;
             this.btn_graph.Text = "Графики";
             this.btn_graph.UseVisualStyleBackColor = true;
+            this.btn_graph.Click += new System.EventHandler(this.btn_graph_Click);
             // 
             // main_form
             // 

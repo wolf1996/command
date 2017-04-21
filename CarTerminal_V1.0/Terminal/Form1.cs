@@ -22,6 +22,7 @@ namespace Terminal
         public delegate void AutoParametersChange(int weight, int freq, int coe, int imp, int rd, int rs);
         public delegate void Start();
         public delegate void Stop();
+        public delegate void MessageRecieved(string msg);
 
         public event ModeChange onModeChange;
         public event KeyStateChange onKeyStateChange;
@@ -30,6 +31,7 @@ namespace Terminal
         public event AutoParametersChange onAutoParametersChange;
         public event Start onStart;
         public event Start onStop;
+        public event MessageRecieved onMessageRecieved;
 
         private COMPort com = new COMPort();
         private CommandLinker c_linker;
@@ -37,6 +39,8 @@ namespace Terminal
         private string path_file;
         private string last_command = "";
         public bool com_state = true;
+
+        private Form2 form_graph = new Form2();
 
         //--- Конструктор по-умолчанию --------------------------------------------------------------------------------
         public main_form()
@@ -51,6 +55,7 @@ namespace Terminal
             onAutoParametersChange += c_linker.onAutoParametersChange;
             onStart += c_linker.onStart;
             onStop += c_linker.onStop;
+            onMessageRecieved += form_graph.get_data;
 
             foreach(string port in SerialPort.GetPortNames())           // Заполнение списков COM-портов
                 cb_port.Items.Add(port);
@@ -106,10 +111,11 @@ namespace Terminal
         private void recieve_msg(string msg)
         {
             rtb_recieved.Invoke((MethodInvoker)(delegate() 
-            { 
+            {
                 rtb_recieved.Text += msg + Environment.NewLine;
                 rtb_recieved.SelectionStart = rtb_recieved.Text.Length;
                 rtb_recieved.ScrollToCaret();
+                onMessageRecieved(msg);
                 if (!CommandReciever.isCorrect(msg, last_command)) com_send(last_command);
                 else
                 {
@@ -272,6 +278,13 @@ namespace Terminal
             int rs = Convert.ToInt32(nud_auto_rs.Value);
 
             onAutoParametersChange(weigth, freq, coe, imp, rd, rs);
+        }
+
+        private void btn_graph_Click(object sender, EventArgs e)
+        {
+            form_graph = new Form2();
+            form_graph.Show();
+            onMessageRecieved += form_graph.get_data;
         }
     }
 }

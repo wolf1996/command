@@ -225,7 +225,7 @@
             this.Controls.Add(this.gyroX);
             this.Controls.Add(this.axelX);
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "Показания сенсорики";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axelX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gyroX)).EndInit();
