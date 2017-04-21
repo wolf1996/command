@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terminal", "Terminal\Terminal.csproj", "{622B28E0-9DED-4263-B421-6170505FAC7D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodedUITest", "CodedUITest\CodedUITest.csproj", "{B4B1AE50-73C8-442F-8163-4FF9601E911E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlow", "SpecFlow\SpecFlow.csproj", "{0249B8E9-0F67-46C4-B2BA-02841A7994AD}"
 EndProject
@@ -24,10 +22,6 @@ Global
 		{622B28E0-9DED-4263-B421-6170505FAC7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{622B28E0-9DED-4263-B421-6170505FAC7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{622B28E0-9DED-4263-B421-6170505FAC7D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B4B1AE50-73C8-442F-8163-4FF9601E911E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B4B1AE50-73C8-442F-8163-4FF9601E911E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B4B1AE50-73C8-442F-8163-4FF9601E911E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B4B1AE50-73C8-442F-8163-4FF9601E911E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0249B8E9-0F67-46C4-B2BA-02841A7994AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0249B8E9-0F67-46C4-B2BA-02841A7994AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0249B8E9-0F67-46C4-B2BA-02841A7994AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
