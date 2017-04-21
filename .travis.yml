@@ -1,11 +1,8 @@
 language: csharp
 solution: CarSimulator/Terminal.sln
-matrix:
-  include:
-    - dotnet: 1.0.1
-      mono: none
-      dist: trusty
-      env: DOTNETCORE=1
+mono: none
+dotnet: 1.0.1
+dist: trusty
 install:
   - sudo apt-get install -y gtk-sharp2
   - nuget restore CarSimulator/Terminal.sln
