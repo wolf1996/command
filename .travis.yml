@@ -5,6 +5,7 @@ dotnet: 1.0.1
 dist: trusty
 install:
   - sudo apt-get install -y gtk-sharp2
+  - sudo apt-get install nunit-console
   - nuget restore CarSimulator/Terminal.sln
   - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
 script:

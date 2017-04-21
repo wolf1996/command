@@ -9,7 +9,7 @@ namespace Terminal
     /// <summary>
     /// Учитывается время с последней команды
     /// Ответы на все простые команды
-    /// 
+    ///
     /// </summary>
     public static class CommandTest
     {
