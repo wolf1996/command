@@ -11,8 +11,12 @@ namespace Terminal
 {
     public partial class Form2 : Form
     {
-        public Form2()
+        private Form parent_form;
+
+        public Form2(Form parent_form)
         {
+            this.parent_form = parent_form;
+
             InitializeComponent();
         }
 
@@ -26,9 +30,9 @@ namespace Terminal
             Double x_a = Convert.ToDouble(elems[2]);
             Double y_a = Convert.ToDouble(elems[3]);
             Double z_a = Convert.ToDouble(elems[4]);
-            Double x_g = Convert.ToDouble(elems[2]);
-            Double y_g = Convert.ToDouble(elems[3]);
-            Double z_g = Convert.ToDouble(elems[4]);
+            Double x_g = Convert.ToDouble(elems[5]);
+            Double y_g = Convert.ToDouble(elems[6]);
+            Double z_g = Convert.ToDouble(elems[7]);
             axelX.Series[0].Points.AddXY(time, x_a);
             axelY.Series[0].Points.AddXY(time, y_a);
             axelZ.Series[0].Points.AddXY(time, z_a);
@@ -58,6 +62,12 @@ namespace Terminal
             {
                 enc3_handler(elems);
             }
+        }
+
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Form mf = parent_form as main_form;
+            
         }
     }
 }

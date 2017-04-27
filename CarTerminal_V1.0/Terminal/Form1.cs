@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO.Ports;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace Terminal
 {
@@ -40,12 +41,14 @@ namespace Terminal
         private string last_command = "";
         public bool com_state = true;
 
-        private Form2 form_graph = new Form2();
+        private Form2 form_graph;
 
         //--- Конструктор по-умолчанию --------------------------------------------------------------------------------
         public main_form()
         {
             InitializeComponent();
+            form_graph = new Form2(this);
+            onMessageRecieved += form_graph.get_data;
 
             c_linker = new CommandLinker(this);                         // Инициализация компановщика команд
             onModeChange += c_linker.onModeChange;
@@ -55,7 +58,6 @@ namespace Terminal
             onAutoParametersChange += c_linker.onAutoParametersChange;
             onStart += c_linker.onStart;
             onStop += c_linker.onStop;
-            onMessageRecieved += form_graph.get_data;
 
             foreach(string port in SerialPort.GetPortNames())           // Заполнение списков COM-портов
                 cb_port.Items.Add(port);
@@ -180,6 +182,7 @@ namespace Terminal
         //--- Отправка команды по COM-порту ---------------------------------------------------------------------------
         public void com_send(string text)
         {
+            Thread.Sleep(100);
             rtb_send.Text += com.send(text) + Environment.NewLine;
             rtb_send.SelectionStart = rtb_send.Text.Length;
             rtb_send.ScrollToCaret();
@@ -280,11 +283,18 @@ namespace Terminal
             onAutoParametersChange(weigth, freq, coe, imp, rd, rs);
         }
 
+        //--- Открыть окно для отображения графиков -------------------------------------------------------------------
         private void btn_graph_Click(object sender, EventArgs e)
         {
-            form_graph = new Form2();
+            form_graph = new Form2(this);
             form_graph.Show();
+            form_graph.FormClosing += onGraphClose;
             onMessageRecieved += form_graph.get_data;
+        }
+
+        private void onGraphClose(object sender, EventArgs e)
+        {
+            onMessageRecieved -= form_graph.get_data;
         }
     }
 }

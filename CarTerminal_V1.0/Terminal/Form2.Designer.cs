@@ -82,6 +82,8 @@
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Legend = "Legend1";
             series1.Name = "axelX";
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
             this.axelX.Series.Add(series1);
             this.axelX.Size = new System.Drawing.Size(337, 194);
             this.axelX.TabIndex = 0;
@@ -226,6 +228,7 @@
             this.Controls.Add(this.axelX);
             this.Name = "Form2";
             this.Text = "Показания сенсорики";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axelX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gyroX)).EndInit();
