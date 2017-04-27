@@ -111,9 +111,6 @@
       <id>04ab0cc6-f13b-4cf7-995e-5497a603011b</id>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Default.srprofile">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
