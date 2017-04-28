@@ -53,6 +53,71 @@ namespace CodedUITests
             Mouse.Click(uIЗакрытьButton1, new Point(24, 13));
         }
         
+        /// <summary>
+        /// RM_Send - Use 'RM_SendParams' to pass parameters into this method.
+        /// </summary>
+        public void RM_Send()
+        {
+            #region Variable Declarations
+            WinButton uIОткрытьButton = this.UIТерминалV10Window.UIОткрытьWindow.UIОткрытьButton;
+            WinWindow uITb_send_commandWindow = this.UIТерминалV10Window.UIТерминалV10Client.UITb_send_commandWindow;
+            WinEdit uITb_send_commandEdit = this.UIТерминалV10Window.UITb_send_commandWindow.UITb_send_commandEdit;
+            WinButton uIОтправитьButton = this.UIТерминалV10Window.UIОтправитьWindow.UIОтправитьButton;
+            WinButton uIЗакрытьButton = this.UIТерминалV10Window.UIОткрытьWindow.UIЗакрытьButton;
+            WinButton uIЗакрытьButton1 = this.UIТерминалV10Window.UIТерминалV10TitleBar.UIЗакрытьButton;
+            #endregion
+
+            // Click 'Открыть' button
+            Mouse.Click(uIОткрытьButton, new Point(32, 7));
+
+            // Click 'tb_send_command' window
+            Mouse.Click(uITb_send_commandWindow, new Point(137, 18));
+
+            // Type 'test' in 'tb_send_command' text box
+            uITb_send_commandEdit.Text = this.RM_SendParams.UITb_send_commandEditText;
+
+            // Click 'Отправить' button
+            Mouse.Click(uIОтправитьButton, new Point(25, 17));
+
+            // Click 'Закрыть' button
+            Mouse.Click(uIЗакрытьButton, new Point(38, 16));
+
+            // Click 'Закрыть' button
+            Mouse.Click(uIЗакрытьButton1, new Point(36, 8));
+        }
+        
+        /// <summary>
+        /// RM_Send2 - Use 'RM_Send2Params' to pass parameters into this method.
+        /// </summary>
+        public void RM_Send2()
+        {
+            #region Variable Declarations
+            WinButton uIОткрытьButton = this.UIТерминалV10Window.UIОткрытьWindow.UIОткрытьButton;
+            WinEdit uITb_send_commandEdit = this.UIТерминалV10Window.UITb_send_commandWindow.UITb_send_commandEdit;
+            WinButton uIОтправитьButton = this.UIТерминалV10Window.UIОтправитьWindow.UIОтправитьButton;
+            WinButton uIЗакрытьButton = this.UIТерминалV10Window.UIОткрытьWindow.UIЗакрытьButton;
+            WinButton uIЗакрытьButton1 = this.UIТерминалV10Window.UIТерминалV10TitleBar.UIЗакрытьButton;
+            #endregion
+
+            // Launch 'C:\IU7\Testing\Terminal\CarTerminal_V1.0\Terminal\bin\Debug\Terminal.exe'
+            ApplicationUnderTest uIТерминалV10Window = ApplicationUnderTest.Launch(this.RM_Send2Params.UIТерминалV10WindowExePath, this.RM_Send2Params.UIТерминалV10WindowAlternateExePath);
+
+            // Click 'Открыть' button
+            Mouse.Click(uIОткрытьButton, new Point(15, 13));
+
+            // Type 'test' in 'tb_send_command' text box
+            uITb_send_commandEdit.Text = this.RM_Send2Params.UITb_send_commandEditText;
+
+            // Click 'Отправить' button
+            Mouse.Click(uIОтправитьButton, new Point(37, 15));
+
+            // Click 'Закрыть' button
+            Mouse.Click(uIЗакрытьButton, new Point(33, 7));
+
+            // Click 'Закрыть' button
+            Mouse.Click(uIЗакрытьButton1, new Point(43, 12));
+        }
+        
         #region Properties
         public virtual RM_OpenCloseParams RM_OpenCloseParams
         {
@@ -63,6 +128,30 @@ namespace CodedUITests
                     this.mRM_OpenCloseParams = new RM_OpenCloseParams();
                 }
                 return this.mRM_OpenCloseParams;
+            }
+        }
+        
+        public virtual RM_SendParams RM_SendParams
+        {
+            get
+            {
+                if ((this.mRM_SendParams == null))
+                {
+                    this.mRM_SendParams = new RM_SendParams();
+                }
+                return this.mRM_SendParams;
+            }
+        }
+        
+        public virtual RM_Send2Params RM_Send2Params
+        {
+            get
+            {
+                if ((this.mRM_Send2Params == null))
+                {
+                    this.mRM_Send2Params = new RM_Send2Params();
+                }
+                return this.mRM_Send2Params;
             }
         }
         
@@ -81,6 +170,10 @@ namespace CodedUITests
         
         #region Fields
         private RM_OpenCloseParams mRM_OpenCloseParams;
+        
+        private RM_SendParams mRM_SendParams;
+        
+        private RM_Send2Params mRM_Send2Params;
         
         private UIТерминалV10Window mUIТерминалV10Window;
         #endregion
@@ -103,6 +196,46 @@ namespace CodedUITests
         /// Launch 'C:\IU7\Testing\Terminal\CarTerminal_V1.0\Terminal\bin\Debug\Terminal.exe'
         /// </summary>
         public string UIТерминалV10WindowAlternateExePath = "C:\\IU7\\Testing\\Terminal\\CarTerminal_V1.0\\Terminal\\bin\\Debug\\Terminal.exe";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'RM_Send'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "12.0.21005.1")]
+    public class RM_SendParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Type 'test' in 'tb_send_command' text box
+        /// </summary>
+        public string UITb_send_commandEditText = "test";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'RM_Send2'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "12.0.21005.1")]
+    public class RM_Send2Params
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Launch 'C:\IU7\Testing\Terminal\CarTerminal_V1.0\Terminal\bin\Debug\Terminal.exe'
+        /// </summary>
+        public string UIТерминалV10WindowExePath = "C:\\IU7\\Testing\\Terminal\\CarTerminal_V1.0\\Terminal\\bin\\Debug\\Terminal.exe";
+        
+        /// <summary>
+        /// Launch 'C:\IU7\Testing\Terminal\CarTerminal_V1.0\Terminal\bin\Debug\Terminal.exe'
+        /// </summary>
+        public string UIТерминалV10WindowAlternateExePath = "C:\\IU7\\Testing\\Terminal\\CarTerminal_V1.0\\Terminal\\bin\\Debug\\Terminal.exe";
+        
+        /// <summary>
+        /// Type 'test' in 'tb_send_command' text box
+        /// </summary>
+        public string UITb_send_commandEditText = "test";
         #endregion
     }
     
@@ -143,12 +276,54 @@ namespace CodedUITests
                 return this.mUIТерминалV10TitleBar;
             }
         }
+        
+        public UIТерминалV10Client UIТерминалV10Client
+        {
+            get
+            {
+                if ((this.mUIТерминалV10Client == null))
+                {
+                    this.mUIТерминалV10Client = new UIТерминалV10Client(this);
+                }
+                return this.mUIТерминалV10Client;
+            }
+        }
+        
+        public UITb_send_commandWindow UITb_send_commandWindow
+        {
+            get
+            {
+                if ((this.mUITb_send_commandWindow == null))
+                {
+                    this.mUITb_send_commandWindow = new UITb_send_commandWindow(this);
+                }
+                return this.mUITb_send_commandWindow;
+            }
+        }
+        
+        public UIОтправитьWindow UIОтправитьWindow
+        {
+            get
+            {
+                if ((this.mUIОтправитьWindow == null))
+                {
+                    this.mUIОтправитьWindow = new UIОтправитьWindow(this);
+                }
+                return this.mUIОтправитьWindow;
+            }
+        }
         #endregion
         
         #region Fields
         private UIОткрытьWindow mUIОткрытьWindow;
         
         private UIТерминалV10TitleBar mUIТерминалV10TitleBar;
+        
+        private UIТерминалV10Client mUIТерминалV10Client;
+        
+        private UITb_send_commandWindow mUITb_send_commandWindow;
+        
+        private UIОтправитьWindow mUIОтправитьWindow;
         #endregion
     }
     
@@ -238,6 +413,114 @@ namespace CodedUITests
         
         #region Fields
         private WinButton mUIЗакрытьButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "12.0.21005.1")]
+    public class UIТерминалV10Client : WinClient
+    {
+        
+        public UIТерминалV10Client(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinControl.PropertyNames.Name] = "Терминал V1.0";
+            this.WindowTitles.Add("Терминал V1.0");
+            #endregion
+        }
+        
+        #region Properties
+        public WinWindow UITb_send_commandWindow
+        {
+            get
+            {
+                if ((this.mUITb_send_commandWindow == null))
+                {
+                    this.mUITb_send_commandWindow = new WinWindow(this);
+                    #region Search Criteria
+                    this.mUITb_send_commandWindow.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.EDIT", PropertyExpressionOperator.Contains));
+                    this.mUITb_send_commandWindow.SearchProperties[WinWindow.PropertyNames.Instance] = "2";
+                    this.mUITb_send_commandWindow.WindowTitles.Add("Терминал V1.0");
+                    #endregion
+                }
+                return this.mUITb_send_commandWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinWindow mUITb_send_commandWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "12.0.21005.1")]
+    public class UITb_send_commandWindow : WinWindow
+    {
+        
+        public UITb_send_commandWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "tb_send_command";
+            this.WindowTitles.Add("Терминал V1.0");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UITb_send_commandEdit
+        {
+            get
+            {
+                if ((this.mUITb_send_commandEdit == null))
+                {
+                    this.mUITb_send_commandEdit = new WinEdit(this);
+                    #region Search Criteria
+                    this.mUITb_send_commandEdit.WindowTitles.Add("Терминал V1.0");
+                    #endregion
+                }
+                return this.mUITb_send_commandEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUITb_send_commandEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "12.0.21005.1")]
+    public class UIОтправитьWindow : WinWindow
+    {
+        
+        public UIОтправитьWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "btn_send";
+            this.WindowTitles.Add("Терминал V1.0");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIОтправитьButton
+        {
+            get
+            {
+                if ((this.mUIОтправитьButton == null))
+                {
+                    this.mUIОтправитьButton = new WinButton(this);
+                    #region Search Criteria
+                    this.mUIОтправитьButton.SearchProperties[WinButton.PropertyNames.Name] = "Отправить";
+                    this.mUIОтправитьButton.WindowTitles.Add("Терминал V1.0");
+                    #endregion
+                }
+                return this.mUIОтправитьButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIОтправитьButton;
         #endregion
     }
 }
